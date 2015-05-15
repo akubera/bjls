@@ -26,7 +26,7 @@ class BlackJackGame
     if not houseRules.decks
       houseRules.decks = 2
 
-    maxPlayers = houseRules.decks * 5  # Most games shouldn't get near this.
+    @maxPlayers = houseRules.decks * 5  # Most games shouldn't get near this.
     @shoe = new Shoe houseRules.decks
 
     # We model the dealer after a player, which may buy us some code reuse.
@@ -188,7 +188,8 @@ class BlackJackGame
 
         # Break out with the two new hands.  The caller must account for
         # them and ensure they get played out.
-        return [split1, split2];
+        return [split1, split2]
+
       case \double
         playerDoes 'doubles down'
         hand.getBet().double()

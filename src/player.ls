@@ -32,8 +32,8 @@ class Player
   get-balance: -> @balance
 
   set-name: (value) ->
-    @name = value
+    @name = String value
 
-  get-name: -> @name
+  get-name: -> name
 
 module.exports = Player;

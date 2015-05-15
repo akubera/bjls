@@ -18,27 +18,23 @@ class Bet
 
   # Get half your money back.
   surrender: ->
-    surrendered = true
+    @surrendered = true
 
   #
-  is-surrendered: ->
-    surrendered
+  is-surrendered: -> @surrendered
 
   #
   set-winnings: (how-much) ->
-    if (surrendered)
-      # Fail silently?
-      return
-    winnings = how-much
+    if not @surrendered
+      @winnings = how-much
 
   #
   get-winnings: ->
-    result = winnings
-    if (surrendered)
+    result = @winnings
+    if @surrendered
       result = @amount / 2
     return result
 
-  get-amount: ->
-    @amount
+  get-amount: -> @amount
 
 module.exports = Bet;

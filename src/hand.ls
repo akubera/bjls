@@ -18,11 +18,11 @@ class Hand
     @value += card.getValue()
 
     # Handle Aces
-    if card.getRank() == "A"
+    if card.getRank() is "A"
       @aces += 1
       @_isSoft = true
 
-    if @value > 21 && @hardenedAces < @aces
+    if @value > 21 and @hardenedAces < @aces
       @value -= 10
       @hardenedAces += 1
       if @hardenedAces == @aces
@@ -34,7 +34,7 @@ class Hand
    # Return whether or not any aces are considered soft.
   is-soft = -> @_isSoft
 
-  is-black-jack: -> @cards.length == 2 && @value == 21
+  is-black-jack: -> @cards.length == 2 and @value == 21
 
    # Returns a copy of the cards.
   get-cards: -> @cards.slice()
